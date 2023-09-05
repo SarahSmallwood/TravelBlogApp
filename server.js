@@ -29,25 +29,6 @@ app.get('/*', function (req, res) {
 // development to avoid collision with React's dev server
 const port = process.env.PORT || 5000;
 
-app.post('/post', uploadMiddleware.single('post'),(req, res) => {
-  const {originalname, path} = req.post;
-  const parts = originalname.split('.');
-  const ext = part[parts.length - 1];
-  const newPath = path+'.'+ext;
-  fs.renameSync(path, newPath);
-
-  const {title, text, image} = req.body;
-  const postDoc = Post.create({
-    title,
-    text,
-    image,
-    cover:newPath,
-  });
-
-
-  res.json({postDoc});
-
-});
 
 app.listen(port, function () {
   console.log(`Express app running on port ${port}`);

@@ -1,21 +1,8 @@
-import { useState, useEffect } from 'react';
-import CreatePost from '../CreatePost/CreatePost';
+import react from 'react';
+import axios from 'axios';
 import BlogPost from '../BlogPost/BlogPost';
 
-export default function ListPosts() {
-  const [posts, setPosts] = useState([]);
-  useEffect(() => {
-    fetch('http://localhost:3000/post').then(response => {
-      response.json().then(posts => {
-        setPosts(posts);
-      });
-    });
-  }, []);
-  return (
-    <>
-    {posts.length > 0 && posts.map(posts => (
-      <BlogPost {...posts}/>
-    ))}
-    </>
-  );
-}
+export default function ListPosts(){}
+
+
+
