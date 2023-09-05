@@ -1,6 +1,21 @@
 //FULL CRUD OPERATIONS HERE
+const express = require('express');
+const router = express.Router();
+const Post = require('...models/post');
 
 //Create, Read, Update, Delete
+
+router.get('/:id', async (req, res, next) => {
+    // req.params contains the route parameters and the id is one of them
+     const post = await Post.findById(req.params.id);
+     return res.status(200).json({
+       statusCode: 200,
+       message: 'Fetched post',
+       data: {
+         post: post || {},
+       },
+     });
+   });
 
 //CREATE 
 

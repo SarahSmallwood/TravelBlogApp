@@ -1,8 +1,7 @@
-import react from 'react';
-import axios from 'axios';
-import BlogPost from '../BlogPost/BlogPost';
+// import react from 'react';
 
-export default function ListPosts(){}
+
+// export default function ListPosts(){}
 
 
 
