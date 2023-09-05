@@ -11,7 +11,7 @@ export default function CreatePost() {
         data.set('text', text);
         data.set('image', image[0]);
         e.preventDefault();
-        const response = await fetch('http://localhost:3000/post', {
+        const response = await fetch('http://localhost:3000/api/post', {
             method: 'POST',
             body: data,
         });
@@ -20,7 +20,7 @@ export default function CreatePost() {
         }
     }
     if (redirect) {
-        return <Link to={'/'} />
+        // return <Link to={'/'} />
     }
 
     return (

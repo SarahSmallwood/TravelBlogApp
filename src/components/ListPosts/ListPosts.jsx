@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import CreatePost from '../CreatePost/CreatePost';
+import BlogPost from '../BlogPost/BlogPost';
 
 export default function ListPosts() {
   const [posts, setPosts] = useState([]);
@@ -13,7 +14,7 @@ export default function ListPosts() {
   return (
     <>
     {posts.length > 0 && posts.map(posts => (
-      <Post {...post}/>
+      <BlogPost {...posts}/>
     ))}
     </>
   );
