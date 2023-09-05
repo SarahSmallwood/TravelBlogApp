@@ -12,7 +12,7 @@ export default function NavBar({ user, setUser }) {
     <nav>
       <Link to='/travelinspiration'>Travel Inspiration</Link>
       &nbsp; | &nbsp;
-      <Link to='/createtravelblog'>Create New Travel Blog Post</Link>
+      <Link to='/createtravelpost'>Create New Travel Blog Post</Link>
       &nbsp; | &nbsp;
       <Link to='/viewall'>View All Travel Blog Posts</Link>
       &nbsp; | &nbsp; <span>Welcome, {user.name}</span>

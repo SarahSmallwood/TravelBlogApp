@@ -1,5 +1,14 @@
-export default function CreateTravelPost() {
+import React, { Component } from 'react';
+import CreatePost from '../../components/CreatePost/CreatePost';
+
+function CreateTravelPost() {
+  
     return (
-        <h1>Create Travel Blog Post</h1>
-    )
-}
+      <div>
+        <CreatePost/>
+      </div>
+    );
+  }
+
+
+export default CreateTravelPost;

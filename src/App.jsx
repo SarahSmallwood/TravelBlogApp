@@ -3,8 +3,8 @@ import { Routes, Route } from 'react-router-dom';
 import { getUser } from './utilities/users-service';
 // pages
 import AuthPage from './pages/AuthPage/AuthPage';
-import TravelInspiration from './pages/Travel Inspiration/TravelInspiration';
-import CreateTravelPost from './pages/Create Travel Post/CreateTravelPost';
+import TravelInspiration from './pages/TravelInspiration/TravelInspiration';
+import CreateTravelPost from './pages/CreateTravelPost/CreateTravelPost';
 import ViewAll from './pages/ViewAll/ViewAll';
 // components
 import NavBar from './components/NavBar/NavBar';
