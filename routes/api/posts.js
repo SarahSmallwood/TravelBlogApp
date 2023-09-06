@@ -12,5 +12,11 @@ router.get('/', postCtrl.index);
 router.get('/:id', postCtrl.show);
 
 router.post("/createpost", postCtrl.createPost)
+
+router.post("/editPost", postCtrl.editPost)
+
+router.post("/deletePosts", postCtrl.deletePosts)
+
+router.post("/showAll", postCtrl.showAll)
     
 module.exports = router
