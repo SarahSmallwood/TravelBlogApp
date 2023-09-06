@@ -1,18 +1,21 @@
 //Model connected to Mongo
 
 const mongoose = require('mongoose');
+const Schema =mongoose.Schema
 
-const Post = mongoose.model('Post', {
+const postSchema = new Schema({
     title: {
         type: String,
         required: true
-    },content: {
+    },author: {
         type: String,
         required: true
-    },
-    author: { 
+    },text: { 
         type: String, 
-        required: true },
-    
+        required: true 
+    },image: { 
+        type: String, 
+        },
+        
 });
-module.exports = Post
+module.exports = mongoose.model('Post', postSchema);

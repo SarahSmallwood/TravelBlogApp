@@ -1,4 +1,5 @@
-import {useState} from "react";
+import {useState, useNavigate} from "react";
+import axios from 'axios';
 
 export default function CreatePost() {
   const [title,setTitle] = useState('');
@@ -8,25 +9,18 @@ export default function CreatePost() {
   const [redirect, setRedirect] = useState(false);
   
   async function createNewPost(e) {
-    const data = new FormData();
-    data.set('title', title);
-    data.set('author', author);
-    data.set('text', text);
-    data.set('image', image[0]);
     e.preventDefault();
-    const response = await fetch('http://localhost:3000/api/posts', {
-      method: 'POST',
-      body: data,
-      credentials: 'include',
-    });
-    if (response.ok) {
-      setRedirect(true);
+    const data = {
+        author: author,
+        title: title,
+        text: text,
+        image: image,
     }
-  }
-
-  if (redirect) {
-    return <Navigate to={'/'} />
-  }
+    console.log("test", data)
+    const response = await axios.post("/api/posts/createpost", data)
+    
+}
+    
   return (
     <form onSubmit={createNewPost}>
       <input type="title"
@@ -42,9 +36,7 @@ export default function CreatePost() {
              value={text}
              onChange={e => setText(e.target.value)} />
       <input type="image"
-             onChange={e => setImage(e.target.image)} />
-      <Editor value={content} onChange={setContent} />
-      <button>Create post</button>
+             onChange={e => setImage(e.target.image[0])} />
+      <button>Publish Post</button>
     </form>
-  );
-}
+  )};

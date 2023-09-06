@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { getUser } from './utilities/users-service';
+
 // pages
 import AuthPage from './pages/AuthPage/AuthPage';
 import TravelInspiration from './pages/TravelInspiration/TravelInspiration';
