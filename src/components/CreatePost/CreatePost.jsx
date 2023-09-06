@@ -5,7 +5,7 @@ export default function CreatePost() {
   const [title,setTitle] = useState('');
   const [author,setAuthor] = useState('');
   const [text,setText] = useState('');
-  const [image, setImage] = useState('');
+  const [image, setImage] = useState([]);
   const [redirect, setRedirect] = useState(false);
   
   async function createNewPost(e) {
@@ -36,7 +36,7 @@ export default function CreatePost() {
              value={text}
              onChange={e => setText(e.target.value)} />
       <input type="image"
-             onChange={e => setImage(e.target.image[0])} />
+             onChange={e => setImage(e.target.file[0])} />
       <button>Publish Post</button>
     </form>
   )};

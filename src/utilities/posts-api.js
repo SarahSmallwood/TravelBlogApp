@@ -2,7 +2,10 @@ import sendRequest from './send-request';
 
 const BASE_URL = '/api/posts';
 
-export function getById(id) {
+export function index(id) {
+  return sendRequest(`${BASE_URL}/${id}`);
+}
+export function show(id) {
   return sendRequest(`${BASE_URL}/${id}`);
 }
 export function editPost() {
@@ -10,7 +13,7 @@ export function editPost() {
   return sendRequest(`${BASE_URL}/blog/edit`, 'POST');
 }
 
-// Return all paid orders for the logged in user
+// Return all posts for the logged in user
 export function showAll() {
   return sendRequest(`${BASE_URL}`);
 }
