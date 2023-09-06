@@ -1,37 +1,38 @@
 import {useContext, useEffect, useState} from "react";
-import {useParams} from "react-router-dom";
 import {Link} from 'react-router-dom';
+import axios from "axios";
 
-export default function PostPage() {
-  const [postInfo,setPostInfo] = useState(null);
-  const {userInfo} = useContext();
-  const {id} = useParams();
-  useEffect(() => {
-    fetch(`http://localhost:3000/api/posts/${id}`)
-      .then(response => {
-        response.json().then(postInfo => {
-          setPostInfo(postInfo);
-        });
-      });
-  }, []);
-
-  if (!postInfo) return '';
+export default function BlogPost() {
+    const [post, setPost] = useState({});
+    // Fetch the single blog post
+    useEffect(() => {
+      async function fetchData() {
+        const { data } = await axios.get(`/api/posts/${post}`);
+        setPost(data.data.post);
+      }
+      fetchData();
+    }, [post]);
+    // Delete the post and redirect the user to the homepage
+    const deletePosts = async () => {
+      await axios.delete(`/api/posts/deletePosts`);
+    }
 
   return (
     <div>
-      <h1>{postInfo.title}</h1>
-      <div className="author">{postInfo.author.username}</div>
-      {userInfo.id === postInfo.author._id && (
+      <h1>{post.title}</h1>
+      <div className="author">{post.author}</div>
+      <div>{post.author}</div>(
         <div>
-          <Link to={`/edit/${postInfo._id}`}>
+          <Link to={`/editPost/${post}`}>
             Edit this post
           </Link>
+          <button onClick={deletePosts}> Delete Post </button>
         </div>
-      )}
+      )
       <div className="image">
-        <img src={`http://localhost:3000/${postInfo.image}`} alt=""/>
+        <img src={`api/post/${post.image}`} alt=""/>
       </div>
-      <div>{postInfo.text}</div>
+      <div>{post.text}</div>
     </div>
   );
 }

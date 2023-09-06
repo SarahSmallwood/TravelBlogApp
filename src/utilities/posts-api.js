@@ -3,21 +3,21 @@ import sendRequest from './send-request';
 const BASE_URL = '/api/posts';
 
 export function index(id) {
-  return sendRequest(`${BASE_URL}/${id}`);
+  return sendRequest(`${BASE_URL}/index`,id);
 }
 export function show(id) {
-  return sendRequest(`${BASE_URL}/${id}`);
+  return sendRequest(`${BASE_URL}/show`,id);
 }
-export function editPost() {
+export function editPost(data) {
   // Changing data on the server, so make it a POST request
-  return sendRequest(`${BASE_URL}/blog/edit`, 'POST');
+  return sendRequest.sendPostRequest(`${BASE_URL}/editPost`, data);
 }
 
 // Return all posts for the logged in user
 export function showAll() {
-  return sendRequest(`${BASE_URL}`);
+  return sendRequest.sendGetRequest(`${BASE_URL}/showAll`);
 }
 // Delete Post
 export function deletePosts() {
-  return sendRequest(`${BASE_URL}/delete`, 'Delete');
+  return sendRequest.sendPostRequest(`${BASE_URL}/deletePosts`);
 }

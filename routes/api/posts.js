@@ -6,10 +6,10 @@ const postCtrl = require('../../controllers/api/posts');
 //Create, Read, Update, Delete
 
 //CREATE 
-// GET /api/items
+// GET /api/posts
 router.get('/', postCtrl.index);
-// GET /api/items/:id
-router.get('/:id', postCtrl.show);
+// GET /api/posts
+router.get('/posts', postCtrl.show);
 
 router.post("/createpost", postCtrl.createPost)
 
@@ -17,6 +17,6 @@ router.post("/editPost", postCtrl.editPost)
 
 router.post("/deletePosts", postCtrl.deletePosts)
 
-router.post("/showAll", postCtrl.showAll)
+router.get("/showAll", postCtrl.showAll)
     
 module.exports = router

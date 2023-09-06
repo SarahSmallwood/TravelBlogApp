@@ -1,4 +1,4 @@
-import {useState, useNavigate} from "react";
+import {useState} from "react";
 import axios from 'axios';
 
 export default function CreatePost() {
@@ -6,9 +6,8 @@ export default function CreatePost() {
   const [author,setAuthor] = useState('');
   const [text,setText] = useState('');
   const [image, setImage] = useState([]);
-  const [redirect, setRedirect] = useState(false);
   
-  async function createNewPost(e) {
+  async function createPost(e) {
     e.preventDefault();
     const data = {
         author: author,
@@ -17,12 +16,12 @@ export default function CreatePost() {
         image: image,
     }
     console.log("test", data)
-    const response = await axios.post("/api/posts/createpost", data)
+    axios.post("/api/posts/createpost", data)
     
 }
     
   return (
-    <form onSubmit={createNewPost}>
+    <form onSubmit={createPost}>
       <input type="title"
              placeholder={'Title'}
              value={title}
@@ -35,8 +34,8 @@ export default function CreatePost() {
              placeholder={'Text'}
              value={text}
              onChange={e => setText(e.target.value)} />
-      <input type="file"
-             onChange={e => setImage(e.target.file)} />
+      <input type="file" multiple accept="image/*"
+             onChange={e => setImage([...e.target.file])} />
       <button>Publish Post</button>
     </form>
   )};
