@@ -35,8 +35,8 @@ export default function CreatePost() {
              placeholder={'Text'}
              value={text}
              onChange={e => setText(e.target.value)} />
-      <input type="image"
-             onChange={e => setImage(e.target.file[0])} />
+      <input type="file"
+             onChange={e => setImage(e.target.file)} />
       <button>Publish Post</button>
     </form>
   )};
