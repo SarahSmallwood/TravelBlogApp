@@ -2,6 +2,7 @@ import axios from "axios";
 import {useEffect, useState} from "react";
 import ListGroup from 'react-bootstrap/ListGroup';
 import styles from './ListPosts.modules.css';
+import BlogPost from "../BlogPost/BlogPost";
 
 export default function ListPosts() {
   const [posts, setPosts] = useState([]); 
@@ -20,7 +21,7 @@ export default function ListPosts() {
         // Map the posts to JSX
         return (
           <ListGroup.Item key={post._id} className="post"> 
-            <div className="title">{post.title}</div>
+            <div className="title" onClick={BlogPost()}>{post.title}</div>
             <div className="author">{post.author}</div>
             {/* <div className="image">{post.image}</div> */}
             <div className="text">{post.text}</div>

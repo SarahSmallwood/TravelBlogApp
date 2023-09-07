@@ -9,16 +9,7 @@ export default function BlogPost() {
   const [text,setText] = useState('');
   const [image, setImage] = useState();
     // Fetch the single blog post
-    useEffect(() => {
-      fetch('/posts/'+id)
-        .then(response => {
-          response.json().then(postInfo => {
-            setTitle(postInfo.title);
-            setContent(postInfo.content);
-            setSummary(postInfo.summary);
-          });
-        });
-    }, []);
+    
     // Delete the post and redirect the user to the homepage
     const editPost = async () => {
       await axios.edit(`/api/posts/editPost`);
@@ -26,24 +17,28 @@ export default function BlogPost() {
     const deletePosts = async () => {
       await axios.delete(`/api/posts/deletePosts`);
     }
-
+  
   return (
-    <div>
-      <h1>{post.title}</h1>
-      <div className="author">{post.author}</div>
-      <div>{post.author}</div>(
-        <div>
-          <Link to={`/editPost/${post}`}>
-            Edit this post
-          </Link>
-          <button onClick={deletePosts}> Delete Post </button>
-        </div>
-      )
-      <div className="image">
-        <img src={`api/post/${post.image}`} alt=""/>
-      </div>
-      <div>{post.text}</div>
-    </div>
+    <form className="form" onSubmit={editPost}>
+    <input type="title"
+           placeholder={'Title'}
+           value={title}
+           onChange={e => setTitle(e.target.value)} />
+    <input type="author"
+           placeholder={'Author'}
+           value={author}
+           onChange={e => setAuthor(e.target.value)} />
+    <input className="text" type="text"
+           placeholder={'Text'}
+           value={text}
+           onChange={e => setText(e.target.value)} />
+    <input type="file"
+           onChange={e => setImage(e.target.files)} />
+           {/* <button className="file" onClick={handleUpload}>Upload</button>  */}
+           <img src={`/Images` +image} alt=''/>
+    <button className="submit">Update Post</button>
+    <button className="delete">Delete Post</button>
+  </form>
   );
 }
 
