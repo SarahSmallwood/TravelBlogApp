@@ -21,7 +21,7 @@ export default function ListPosts() {
         // Map the posts to JSX
         return (
           <ListGroup.Item key={post._id} className="post"> 
-            <div className="title" onClick={BlogPost()}>{post.title}</div>
+            <div className="title">{post.title}</div>
             <div className="author">{post.author}</div>
             {/* <div className="image">{post.image}</div> */}
             <div className="text">{post.text}</div>

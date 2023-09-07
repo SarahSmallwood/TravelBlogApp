@@ -11,13 +11,13 @@ router.get('/', postCtrl.index);
 // GET /api/posts
 router.get('/posts', postCtrl.show);
 
-router.post("/createpost", postCtrl.createPost)
+router.post("/createpost", postCtrl.createPost);
 
-router.post("/editPost", postCtrl.editPost)
+router.post("/editPost", postCtrl.editPost);
 
-router.post("/deletePosts", postCtrl.deletePosts)
+router.post("/deletePosts", postCtrl.deletePosts);
 
-router.get("/showAll", postCtrl.showAll)
+router.get("/showAll", postCtrl.showAll);
 
 // router.post("/upload", postCtrl.upload)
     

@@ -17,7 +17,7 @@ const multer  = require('multer')
 const createPost = async (req, res) => {
   try {
     console.log('test', req.body)
-    const posts = await Posts.create(req.body)
+    const posts = await Posts.create(req.body);
     res.status(200).json(data);
   }catch (e) {
     res.status(400).json({ msg: e.message });
@@ -58,7 +58,7 @@ async function index(req, res) {
   const editPost = async (req, res) => {
   try {
     console.log('test', req.body)
-    const data = await Posts.edit(req.body)
+    const data = await Posts.findByIdandUpdate(req.body.id);
     res.status(200).json(data);
   }catch (e) {
     res.status(400).json({ msg: e.message });

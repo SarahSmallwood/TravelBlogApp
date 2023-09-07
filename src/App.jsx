@@ -4,9 +4,9 @@ import { getUser } from './utilities/users-service';
 
 // pages
 import AuthPage from './pages/AuthPage/AuthPage';
-import TravelInspiration from './pages/TravelInspiration/TravelInspiration';
 import CreateTravelPost from './pages/CreateTravelPost/CreateTravelPost';
 import ViewAll from './pages/ViewAll/ViewAll';
+import BlogPostPage from './pages/BlogPostPage/BlogPostPage';
 // components
 import NavBar from './components/NavBar/NavBar';
 // css
@@ -24,7 +24,7 @@ function App() {
           <WelcomeBanner/>
           <NavBar user={user} setUser={setUser} />
           <Routes>
-            <Route path='/travelinspiration' element={<TravelInspiration />} />
+            <Route path='/blogpostpage' element={<BlogPostPage />} />
             <Route path='/createtravelpost' element={<CreateTravelPost />} />
             <Route path='/viewall' element={<ViewAll/>} />
           </Routes>

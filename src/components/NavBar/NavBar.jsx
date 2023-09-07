@@ -11,11 +11,11 @@ export default function NavBar({ user, setUser }) {
 
   return (
     <nav className="nav">
-      <Link to='/travelinspiration' className="link">Travel Inspiration</Link>
-      &nbsp; | &nbsp;
       <Link to='/createtravelpost' className="link">Create New Travel Blog Post</Link>
       &nbsp; | &nbsp;
       <Link to='/viewall' className="link">View All Travel Blog Posts</Link>
+      &nbsp; | &nbsp;
+      <Link to='/blogpostpage' className="link">Blog Page</Link>
       &nbsp; | &nbsp; <span>Welcome, {user.name}</span>
       &nbsp;&nbsp;
       <Link to='' onClick={handleLogOut} className="link">
