@@ -1,5 +1,6 @@
 import {useContext, useEffect, useState} from "react";
 import {useLocation} from 'react-router-dom';
+import { useNavigate} from "react-router-dom";
 
 
 import axios from "axios";
@@ -12,16 +13,14 @@ export default function BlogPost() {
   const [author,setAuthor] = useState('');
   const [text,setText] = useState('');
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchData() {
 
-      console.log(`BlogPost with id: ${location}`)
-
-      const defaultId = "64f92e71f916fff80d61f0ae"
-
-      const {data} = await axios.get(`/api/posts/showPost/${defaultId}`);
+      const {data} = await axios.get(`/api/posts/showPost/${location.state.id}`);
       setPost(data);
+      setId(data._id)
       setTitle(data.title)
       setText(data.text)
       setAuthor(data.author)
@@ -30,13 +29,21 @@ export default function BlogPost() {
   },[])
     
     // Delete the post and redirect the user to the homepage
-    const editPost = async () => {
-      // await axios.edit(`/api/posts/editPost`);
+    const editPost = async (e) => {
+      e.preventDefault();
+      const data = {
+          id: id,
+          author: author,
+          title: title,
+          text: text
+      }
+      await axios.put(`/api/posts/editPost`, data);
       console.log()
     }
     const deletePosts = async (id) => {
       console.log(`Delete post with id: ${id}`)
-      // await axios.delete(`/api/posts/deletePosts/${id}`);
+      await axios.delete(`/api/posts/deletePosts/${id}`);
+      navigate(`/viewall`);
     }
   
   return (
@@ -56,14 +63,10 @@ export default function BlogPost() {
              onChange={e => setText(e.target.value)} />
       <button className="submit">Publish Post</button>
     </form>
-    {/* <h1>{post.title}</h1>
-    <div>{post.author}</div>
-    <div>{post.text}</div>
-    <button className="submit">Update Post</button> */}
-
+    
     <button 
     className="delete"
-    onClick={ () => {deletePosts("asd")}}
+    onClick={ () => {deletePosts(id)}}
     >
       Delete Post
       </button>

@@ -15,7 +15,7 @@ router.post("/createpost", postCtrl.createPost);
 
 router.put("/editPost", postCtrl.editPost);
 
-router.put("/deletePosts/:id", postCtrl.deletePosts);
+router.delete("/deletePosts/:id", postCtrl.deletePosts);
 
 router.get("/showAll", postCtrl.showAll);
     

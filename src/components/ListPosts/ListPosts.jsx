@@ -11,7 +11,7 @@ export default function ListPosts() {
 
   const onClickGoToPost = (id) => {
     console.log(`onclick ${id}`)
-    navigate(`/blogpostpage`, {state:{id: id,}});
+    navigate(`/blogpostpage`, {state:{id: id}});
   }
 
   const [posts, setPosts] = useState([]); 
