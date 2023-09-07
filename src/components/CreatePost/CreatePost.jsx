@@ -37,7 +37,7 @@ export default function CreatePost() {
     }
     console.log("test", data)
 
-    axios.post("/api/posts/createpost", data)
+    const response = axios.post("/api/posts/createpost", data)
 } 
   return (
     <form className="form" onSubmit={createPost}>
@@ -56,7 +56,6 @@ export default function CreatePost() {
       <input type="file"
              onChange={e => setImage(e.target.files)} />
              {/* <button className="file" onClick={handleUpload}>Upload</button>  */}
-             <img src={`/Images` +image} alt=''/>
       <button className="submit">Publish Post</button>
     </form>
   )};

@@ -5,8 +5,8 @@ const BASE_URL = '/api/posts';
 export function index(id) {
   return sendRequest(`${BASE_URL}/index`,id);
 }
-export function show(id) {
-  return sendRequest(`${BASE_URL}/show`,id);
+export function showpost(id) {
+  return sendRequest(`${BASE_URL}/showpost`,id);
 }
 export function editPost(data) {
   // Changing data on the server, so make it a POST request
@@ -23,6 +23,6 @@ export function deletePosts() {
 }
 
 // Upload Post
-export function uploadPost(data) {
-  return sendRequest.sendPostRequest(`${BASE_URL}/upload`, data);
+export function createPost() {
+  return sendRequest.sendPostRequest(`${BASE_URL}/createPost`);
 }

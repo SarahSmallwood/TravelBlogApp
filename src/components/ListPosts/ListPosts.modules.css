@@ -24,3 +24,9 @@
 .text{
     font-family: serif;
 }
+.postButton{
+    display: flex;
+    border: solid black;
+    color: black;
+    background-color: azure;
+}

@@ -7,5 +7,5 @@ export default function BlogPostPage(posts) {
         <h1>Edit or Delete Posts</h1>
         <BlogPost posts={posts}/>
         </>
-    )
+    );
 }
