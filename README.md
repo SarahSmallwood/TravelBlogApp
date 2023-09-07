@@ -16,6 +16,12 @@ The user can also view blogs posted by other users who have an account.
 ### Further Developments
 One goal for this application was to allow a user to input an image file into the blog post. However in React, this was a difficult task to complete. Upon trying to use Multer, I can into several errors. In the future, I will choose an application like Cloudify which would host these user uploaded images and allow them to be placed into the blog post.
 
+### Framework/ Process
+
+
+![IMG_0293](https://github.com/SarahSmallwood/Capstone/assets/133904630/6cb4faff-2e68-4c5d-940d-dbf3ca69fb42)
+
+
 
 
 
