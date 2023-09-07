@@ -18,5 +18,7 @@ router.post("/editPost", postCtrl.editPost)
 router.post("/deletePosts", postCtrl.deletePosts)
 
 router.get("/showAll", postCtrl.showAll)
+
+// router.post("/upload", postCtrl.upload)
     
 module.exports = router

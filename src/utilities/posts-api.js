@@ -21,3 +21,8 @@ export function showAll() {
 export function deletePosts() {
   return sendRequest.sendPostRequest(`${BASE_URL}/deletePosts`);
 }
+
+// Upload Post
+export function uploadPost(data) {
+  return sendRequest.sendPostRequest(`${BASE_URL}/upload`, data);
+}

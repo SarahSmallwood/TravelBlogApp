@@ -2,15 +2,43 @@ require('dotenv').config();
 require('./config/database');
 
 const express = require('express');
-const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
+const path = require('path');
+const multer  = require('multer');
+const cors = require('cors');
+const Posts = require('./models/Posts')
 
 const app = express();
-
-app.use(logger('dev'));
+app.use(cors());
 app.use(express.json());
 
+// const storage = multer.diskStorage({
+//     destination: (req, file, cb) => {
+//       cb(null, 'public/Images')
+//     }, 
+//       filename: (req, file, cb) => {
+//         cb(null, file.fieldname + "_" + Date.now() +  path.extname(file.originalname))
+//       }
+//   })
+// const upload = multer({
+//   storage: storage
+// })
+// app.post('/upload',upload.single('file'),(req, res) => {
+//   console.log("Upload being executed")
+//   Posts.create({image: req.file.filename})
+//   .then(result => res.json(result))
+//   .catch(err => console.log(err))
+// })
+  
+// app.get('/getImage', (req,res) => {
+//   Posts.find()
+//   .then(users => res.json(users))
+//   .catch(err => res.json(err))
+// })
+  
+app.use(logger('dev'));
+app.use(express.json());
 // Configure both serve-favicon & static middleware
 // to serve from the production 'build' folder
 app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
