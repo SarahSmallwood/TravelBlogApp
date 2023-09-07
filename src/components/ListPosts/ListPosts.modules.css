@@ -1,13 +1,14 @@
 .list{
     border: solid black;
-    width: 800px;
+    width: 900px;
+    display: inline-block;
 }
 .post{
     display: flex;
     justify-content: space-between;
     border: solid black;
     color: black;
-    background-color: azure;
+    background-color: rgb(56, 93, 125);
     padding-top: 20px;
 }
 .title{
@@ -19,7 +20,7 @@
     font-family: serif;
     font-weight: bold;
     display: flex;
-    color: darkcyan;
+    color: white;
 }
 .text{
     font-family: serif;

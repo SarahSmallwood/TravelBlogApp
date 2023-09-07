@@ -1,7 +1,9 @@
 .nav{
     width: 850px;
-    border: solid black;
+    display: inline-block;
 }
 .link{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: serif;
+    font-size: 20px;
+    color: white;
 }
